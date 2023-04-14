@@ -64,16 +64,6 @@ obstacles.push(
 	)
 );
 
-const sleep = async (ms: number) => {
-	return new Promise((resolve) => {
-		setTimeout(() => {
-			resolve('');
-		}, ms);
-	});
-};
-
-const running = true;
-
 document.addEventListener('keydown', (e) => {
 	const sourceDir = source.centerRayAngle.multiplyByValue(2);
 	switch (e.key) {
@@ -132,7 +122,7 @@ mapCheckbox?.addEventListener('input', (e) => {
 	showMap = target.checked;
 });
 
-while (running) {
+setInterval(() => {
 	layer.destroyChildren();
 
 	source.update(angleOffset, fov, resScale);
@@ -172,5 +162,4 @@ while (running) {
 			obstacle.show();
 		}
 	}
-	await sleep(1);
-}
+}, 1);
