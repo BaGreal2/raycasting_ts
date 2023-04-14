@@ -66,8 +66,8 @@ obstacles.push(
 
 document.addEventListener('keydown', (e) => {
 	const sourceDir = source.centerRayAngle.multiplyByValue(2);
-	switch (e.key) {
-		case 'w':
+	switch (e.code) {
+		case 'KeyW':
 			source.x += sourceDir.x;
 			source.y += sourceDir.y;
 
@@ -84,10 +84,10 @@ document.addEventListener('keydown', (e) => {
 				source.y = 1;
 			}
 			break;
-		case 'a':
+		case 'KeyA':
 			angleOffset -= 2 * resScale;
 			break;
-		case 's':
+		case 'KeyS':
 			source.x -= sourceDir.x;
 			source.y -= sourceDir.y;
 			if (source.x > WIDTH * MAP_SCALE) {
@@ -103,7 +103,7 @@ document.addEventListener('keydown', (e) => {
 				source.y = 1;
 			}
 			break;
-		case 'd':
+		case 'KeyD':
 			angleOffset += 2 * resScale;
 			break;
 	}
