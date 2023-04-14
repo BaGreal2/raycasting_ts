@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ray Casting</title>
+</head>
+
+<body>
+  <div id="app">
+    <div id="canvas"></div>
+    <div class="input-container">
+      <div class="fov-container">
+        <input type="range" name="fov" id="fov" class="input fov-input" min="5" max="360" value="65"></input>
+        <label for="fov" class="fov-label">Field of view</label>
+      </div>
+      <div class="res-container">
+        <input type="number" name="res" id="res" class="input res-input" min="1" max="4" value="1"></input>
+        <label for="res" class="res-label">Resolution scale</label>
+      </div>
+      <div class="map-container">
+        <input type="checkbox" name="map" id="map" class="input map-input" checked></input>
+        <label for="map" class="map-label">Show map</label>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
