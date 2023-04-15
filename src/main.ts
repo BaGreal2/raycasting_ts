@@ -122,7 +122,7 @@ mapCheckbox?.addEventListener('input', (e) => {
 	showMap = target.checked;
 });
 
-setInterval(() => {
+const processing = new Konva.Animation(() => {
 	layer.destroyChildren();
 
 	source.update(angleOffset, fov, resScale);
@@ -162,4 +162,6 @@ setInterval(() => {
 			obstacle.show();
 		}
 	}
-}, 1);
+});
+
+processing.start();
