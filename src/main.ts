@@ -3,7 +3,7 @@ import Konva from 'konva';
 import Source from './source';
 import Obstacle from './obstacle';
 import getRandomInt from './helpers/getRandomInt';
-import { fovInput, mapCheckbox, resInput } from './helpers/refs';
+import { fovInput, mapCheckbox, raysCheckbox, resInput } from './helpers/refs';
 
 const WIDTH = window.innerWidth;
 const HEIGHT = window.innerHeight;
@@ -13,6 +13,7 @@ const MAP_SCALE = 0.3;
 let fov = 65;
 let resScale = 1;
 let showMap = true;
+let showRays = false;
 
 const obstacles: Obstacle[] = [];
 let angleOffset = 0;
@@ -121,6 +122,10 @@ mapCheckbox?.addEventListener('input', (e) => {
 	const target = e.target as HTMLInputElement;
 	showMap = target.checked;
 });
+raysCheckbox?.addEventListener('input', (e) => {
+	const target = e.target as HTMLInputElement;
+	showRays = target.checked;
+});
 
 const processing = new Konva.Animation(() => {
 	layer.destroyChildren();
@@ -157,7 +162,7 @@ const processing = new Konva.Animation(() => {
 			fill: 'black',
 		});
 		layer.add(mapBg);
-		source.show();
+		source.show(showRays);
 		for (const obstacle of obstacles) {
 			obstacle.show();
 		}

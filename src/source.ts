@@ -76,7 +76,7 @@ export default class Source {
 		}
 	}
 
-	public show() {
+	public show(showRays: boolean) {
 		const dot = new Konva.Circle({
 			radius: 3,
 			fill: 'white',
@@ -85,8 +85,13 @@ export default class Source {
 		});
 
 		this.ctx.add(dot);
-		for (const ray of this._rays) {
-			this.ctx.add(ray.getDrawable());
+		if (showRays) {
+			for (const ray of this._rays) {
+				this.ctx.add(ray.getDrawable());
+			}
+		} else {
+			this.ctx.add(this._rays[0].getDrawable());
+			this.ctx.add(this._rays[this._rays.length - 1].getDrawable());
 		}
 	}
 }

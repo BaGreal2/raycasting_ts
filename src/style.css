@@ -39,3 +39,7 @@ label {
 	display: flex;
 	gap: 10px;
 }
+.rays-container {
+	display: flex;
+	gap: 10px;
+}
